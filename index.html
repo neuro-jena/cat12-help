@@ -551,7 +551,7 @@
               </ul></li>
               <li>Global scaling with TIV <em>[use defaults or modify]</em>
               <ul>
-                <li>This option is to correct mean Z-scores for TIV by global scaling. It is only meaningful for VBM data.</li>
+                <li>This option is to correct quartic mean Z-scores for TIV by global scaling. It is only meaningful for VBM data.</li>
               </ul></li>
               <li>Nuisance &rarr; <em>[enter nuisance variables if applicable]</em>
               <ul>
@@ -559,13 +559,13 @@
               </ul></li>
             </ul>
 
-            <br><p>A window opens with a plot in which the mean Z-scores for all volumes is displayed. High mean Z-scores values mean that your data are more similar to each other. If you click in the plot, the corresponding data is displayed in the lower right corner and allow a closer look. The slider below the image changes the displayed slice. The pop-up menus in the top right-hand corner provide more options. Here you can select other measures that are displayed in the boxplot (e.g. optional quality measures such as noise, bias, weighted overall image quality if these values were loaded). Finally, most deviating data can be displayed in the SPM graphics window to check the data more closely. For surfaces, two additional measures are available (if you have loaded the xml-files ) to utilize the quality check of the surface extraction. The Euler number gives you an idea about the number of topology defects, while the defect size indicates how many vertices of the surface are affected by topology defects. Because topology defects are mainly caused by noise and other image artifacts (e.g. motion) this gives you an impression about the potential quality of your extracted surface.</p>
+            <br><p>A window opens with a plot in which the quartic mean Z-scores for all volumes is displayed. Higher quartic mean Z-scores values mean that your data are less similar to each other. The larger the quartic mean Z-score the more deviant is this data from the sample mean. The reason we apply a power of 4 to the z-score (quartic) is to give outliers a greater weight and make them more obvious in the plot. If you click in the plot, the corresponding data is displayed in the lower right corner and allow a closer look. The slider below the image changes the displayed slice. The pop-up menus in the top right-hand corner provide more options. Here you can select other measures that are displayed in the boxplot (e.g. optional quality measures such as noise, bias, weighted overall image quality if these values were loaded). Finally, most deviating data can be displayed in the SPM graphics window to check the data more closely. For surfaces, two additional measures are available (if you have loaded the xml-files ) to utilize the quality check of the surface extraction. The Euler number gives you an idea about the number of topology defects, while the defect size indicates how many vertices of the surface are affected by topology defects. Because topology defects are mainly caused by noise and other image artifacts (e.g. motion) this gives you an impression about the potential quality of your extracted surface.</p>
 
-            <p>The boxplot in the SPM graphics window displays the mean Z-score values for each subject and indicates the homogeneity of your sample. A small mean Z-score in the boxplot does not always mean that this volume is an outlier or contains an artifact. If there are no artifacts in the image and if the image quality is reasonable you don't have to exclude this volume from the sample. This tool is intended to utilize the process of quality checking and there are no clear criteria defined to exclude a volume only based on the mean Z-score value. However, volumes with a noticeable lower mean Z-score (e.g. below two standard deviations) are indicated and should be checked more carefully. The same holds for all other measures. Data with deviating values have not necessarily to be excluded from the sample, but these data should be checked more carefully with the &quot;Check most deviating data&quot; option. The order of the most deviating data is changed for every measure separately. Thus, the check for the most deviating data will give you a different order for mean correlation and other measures which allows you to judge your data quality using different features.</p>
+            <p>The boxplot in the SPM graphics window displays the quartic mean Z-score values for each subject and indicates the homogeneity of your sample. A high quartic mean Z-score in the boxplot does not always mean that this volume is an outlier or contains an artifact. If there are no artifacts in the image and if the image quality is reasonable you don't have to exclude this volume from the sample. This tool is intended to utilize the process of quality checking and there are no clear criteria defined to exclude a volume only based on the quartic mean Z-score value. However, volumes with a noticeable higher quartic mean Z-score (e.g. above two standard deviations) are indicated and should be checked more carefully. The same holds for all other measures. Data with deviating values have not necessarily to be excluded from the sample, but these data should be checked more carefully with the &quot;Check most deviating data&quot; option. The order of the most deviating data is changed for every measure separately. Thus, the check for the most deviating data will give you a different order for mean correlation and other measures which allows you to judge your data quality using different features.</p>
 
-            <p>If you have loaded quality measures, you can also display the ratio between weighted overall image quality (IQR) and mean Z-score. These two are the most important measures for assessing image quality. Mean Z-score measures the homogeneity of your data used for statistical analysis and is therefore a measure of image quality <b>after</b> pre-processing. Data that deviate from your sample increase variance and therefore minimize effect size and statistical power. The weighted overall image quality, on the other hand, combines measurements of noise and spatial resolution of the images <b>before</b> pre-processing. Although CAT12 uses effective noise-reduction approaches (e.g. spatial adaptive non-local means filter) pre-processed images are also affected and should be checked.</p>
+            <p>If you have loaded quality measures, you can also display the ratio between weighted overall image quality (IQR) and quartic mean Z-score. These two are the most important measures for assessing image quality. Mean Z-score measures the homogeneity of your data used for statistical analysis and is therefore a measure of image quality <b>after</b> pre-processing. Data that deviate from your sample increase variance and therefore minimize effect size and statistical power. The weighted overall image quality, on the other hand, combines measurements of noise and spatial resolution of the images <b>before</b> pre-processing. Although CAT12 uses effective noise-reduction approaches (e.g. spatial adaptive non-local means filter) pre-processed images are also affected and should be checked.</p>
 
-            <p>The product between IQR and mean Z-scores makes it possible to combine these two measures of image quality before and after pre-processing. A low ratio indicates good quality before and after preprocessing and means that IQR is highly rated (resulting in a low nominal number/grade) and/or mean Z-score is high. Both measures contribute to the ratio and are normalized before by their standard deviation. In the respective plot, the product value is colour-coded and each point can be selected to get the filename and display the selected slice to check data more closely.</p>
+            <p>The product between IQR and quartic mean Z-scores makes it possible to combine these two measures of image quality before and after pre-processing. A low ratio indicates good quality before and after preprocessing and means that IQR is highly rated (resulting in a low nominal number/grade) and/or quartic mean Z-score is high. Both measures contribute to the ratio and are normalized before by their standard deviation. In the respective plot, the product value is colour-coded and each point can be selected to get the filename and display the selected slice to check data more closely.</p>
             
             <!-- ############################# -->
             <h5 id="module5">Fifth Module: Smooth</h5>
@@ -707,8 +707,8 @@
             <u>Check design orthogonality and homogeneity</u><br>
             In order to identify images with poor image quality or even artefacts you can use <a href="#module4">Check Sample Homogeneity</a>. The idea of this option is to check the Z-score of all files across the sample using the files that are already defined in SPM.mat.<br>
   
-            <p>The Z-score is calculated for all images and the mean for each image is plotted using a boxplot (or violin plot) and the indicated filenames. The larger the mean (absolute) Z-score the more deviant is this image from the sample mean. In the plot outliers from the sample are usually isolated from the majority of images which are clustered around the sample mean. The mean Z-score is plotted at the y-axis and the x-axis reflects the image order.<br>
-            The advantage of rechecking sample homogeneity at this point is that the given statistical model (design) is used and potential nuisance parameters are taken into account. If you have longitudinal data, the time points of each data set are linked in the graph to indicate intra-subject data. Unsmoothed data (if available and in the same folder) are automatically detected and used. Finally, report files are used if present (i.e., if data has not been moved or the folders renamed) and quality parameters are loaded and displayed.<br>
+            <p>The Z-score is calculated for all images and the mean for each image is plotted using a boxplot (or violin plot) and the indicated filenames. The larger the quartic mean Z-score the more deviant is this data from the sample mean. The reason we apply a power of 4 to the z-score (quartic) is to give outliers a greater weight and make them more obvious in the plot. In the plot, outliers from the sample are usually isolated from the majority of data which are clustered around the sample mean. The quartic mean Z-score is plotted at the y-axis and the x-axis reflects the data order.<br>
+            The advantage of re-checking sample homogeneity at this point is that the given statistical model (design) is used and potential nuisance parameters are taken into account. If you have longitudinal data, the time points of each data set are linked in the graph to indicate intra-subject data. Unsmoothed data (if available and in the same folder) are automatically detected and used. Finally, report files are used if present (i.e., if data has not been moved or the folders renamed) and quality parameters are loaded and displayed.<br>
             If you have modeled TIV as a nuisance parameter, you must check whether TIV is orthogonal (in other words independent) to any other parameter of interest in your analysis (e.g. parameters you are testing for) using <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.chec_SPM');">Check Design Orthogonality</a>. See <a href="#ortho">here</a> for a detailed description.<p>
 
             <u>Voxel-wise covariate (experimental!)</u><br>
@@ -3153,14 +3153,17 @@
             An excellent overview about the <a href="https://www.lead-dbs.org/about-the-mni-spaces/">different MNI spaces</a> can be found on the DBS site from Andreas Horn.</p>
             
             <i>White Matter Hyperintensity Correction (WMHC)</i>
-            <p>The greater dependency of AMAP PVE segmentation on image intensities requires detection and handling of <i>White Matter Hyperintensities</i> (WMHs, <a href="https://dx.doi.org/10.13140/RG.2.2.26753.20326">Dahnke et al. 2019)</a>.
-            An atlas-region-growing strategy is used to detect WMHs and assign them to GM (like in VBM8, default), WM, or as a separate class. 
-<!--            For details see <a href="cat_methods_WMHC.html">WMHC</a>.</p> -->
+            <p>Detecting <i>White Matter Hyperintensities</i> (WMHs) is crucial to avoid registration errors, such as attempting to move WMHs to typical GM locations, and surface reconstruction problems, such as misinterpreting WMHs as fuzzy cortical sulci <a href="https://dx.doi.org/10.13140/RG.2.2.26753.20326">Dahnke et al. 2019)</a>.</br>
+            CAT first applies an optimised low-resolution shooting registration technique (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner and Friston, 2011</a>) on the initial SPM segments to map the tissue probability map (TPM) and the CAT atlas to the individual space. Fine local correction of tissues and regions is then performed using region-growing and bottle-neck algorithms (<a href="https://doi.org/10.1109/MMBIA.1996.534084">Mangin et al., 1996.</a>; <a href="https://neuro-jena.github.io/pdf/Dahnke-NI12.pdf">Dahnke et al. 2012</a>). In the individual atlas map, isolated grey matter (GM) islands within the white matter (WM) and voxels surrounding the lateral ventricles with high WM probability but GM-like intensity are referred to as WM hyperintensities (WMHs).</br>
+            The final segmentation of the prepared T1 image with uncorrected WMHs uses an AMAP approach (<a href="https://doi.org/10.1109/42.563663">Rajapakse et al., 1997</a>) with a partial volume estimation (PVE) model (<a href="https://doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al., 2004</a>). Voxels with GM intensity but a WMH label are either temporarily aligned to the WM or treated as a separate tissue class, depending on the WMHC processing parameters.</p>
             
             <i>Stroke Lesion Correction (SLC)</i></p>
-            <p>To avoid improper volumetric deformations in stroke lesions, CAT allows to suppress strong (high-frequent) deformation in the Dartel/Shooting registration schemes (<a href="#Fig1">Figure 1</a>). 
+            <p>To avoid improper volumetric deformations in stroke lesions, CAT allows to suppress strong (high-frequent) deformation in the Dartel/Shooting registration schemes. 
             The lesions have to be set to zero (e.g., by using the  <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.maskimg');">Manual image (lesion) masking</a> batch) and the SLC flag has to be activate in the <a class="function" href="matlab:cat('expert');">expert mode</a> of CAT.
             The functions are still in development and a customized surface registration has not yet been implemented.</p> 
+            <p><img id="figure4" width=80% alt="cat_SLC" src="images/cat_SLC_msk_c0009s0010t01A.png"</p>
+            <figcaption><b>Stroke Lesion Correction</b> Shown is the grey matter segmentation of subject <i>SLC_msk_c0009s0010t01</i> from the <a href="http://fcon_1000.projects.nitrc.org/indi/retro/atlas.html">ATLAS</a> database without (left) and with <i>Stroke Lesion Correction</i> (SLC; right)</figcaption>
+            </p>
 
             <!-- ################################################################################# -->
             <h4 id="surf_proc">Surface-based preprocessing</h4>
@@ -3700,21 +3703,112 @@
             </p>
 
             <!-- ################################################################################# -->
-<!--
+
             <h2 id="faq">FAQ</h2>
+            
+            <details>            
+              <summary><u>The old "Check Sample Homogeneity" tool was quite useful for finding duplicate subjects in large samples. The new homogeneity tool, which uses Z-score, no longer supports this.</u></summary>
+              Estimating the Z-score is much faster than calculating the covariance matrix between all scans, especially for larger samples. Furthermore, newer CAT12 versions use the quatric mean Z-score, which gives outliers a greater weight and make them more obvious in the plot. However, the old tool is still available <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.check_homogeneity');">here</a>.
+            </details>            
 
             <details>            
               <summary><u>Can I overlay more than one result on the surface?</u></summary>
               Use the following command to allow RGB overlay of up to 3 results: <a class="function" href="matlab:y=cat_surf_results('rgb',spm_select([1 3],'mesh'));">cat_surf_results('rgb',spm_select([1 3],'mesh'));</a><br>
               Please note that the surface maps should be thresholded (i.e. using <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.T2x');">Transform and Threshold SPM-maps</a>)              
             </details>            
-            
+
             <details>            
-              <summary><u>The old "Check Sample Homogeneity" tool was quite useful for finding duplicate subjects in large samples. The new homogeneity tool, which uses Z-score, no longer supports this.</u></summary>
-              Estimating the Z-score is much faster than calculating the covariance matrix between all scans, especially for larger samples. However, the old tool is still available <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.check_homogeneity');">here</a>.
+              <summary><u>Which of the morphological measures (grey matter or cortical thickness) is the best to assess atrophy/neurodegeneration in Alzheimer's disease?</u></summary>
+              Cortical thickness is the better biological measure of Alzheimer's disease, while grey matter volume is more sensitive. This is because surface reconstruction is more susceptible to image quality problems and thickness is estimated in the sub-millimetre range, whereas images have a spatial resolution of about 1 mm. In Alzheimer's disease, however, atrophy is quite pronounced, so cortical thickness is also a reliable indicator of these effects. Grey matter volume, on the other hand, has the advantage of providing additional measurements in the hippocampus and amygdala, which are key structures in Alzheimer's disease. I would definitely try both and decide based on the results.
             </details>            
 
--->
+            <details>            
+              <summary><u>How can I run CAT12 on a HPC system?</u></summary>
+              On the HPC I would prefer to call CAT12 from the shell without display. Here you can either use the standalone version of CAT12 (without need of Matlab license) or the standard version. <br>
+              The <a href="https://neuro-jena.github.io/enigma-cat12/">ENIGMA-CAT12 protocol</a> describes the available steps. You can decide with two flags (-ns, -e) whether you call the standalone or standard version.<br>
+              Standalone version:<brY
+              /software/CAT12.8.2_MCR/standalone/cat_standalone.sh -m /software/CAT12.8.2_MCR/v93 \<br>
+              -b /software/CAT12.8.1_MCR/standalone/cat_standalone_segment_enigma.m \<br>
+              /data/enigma-data/raw/sub*.nii.gz<br>
+              Standard version:<br>
+              your_spm12_folder/toolbox/cat12/standalone/cat_standalone.sh -ns -e -m /usr/local/bin/matlab \<br>
+              -b your_spm12_folder/toolbox/cat12/standalone/cat_standalone_segment_enigma.m \<br>
+              -s your_spm12_folder /data/enigma-data/raw/sub*.nii.gz
+            </details>            
+
+            <details>            
+              <summary><u>I have doubts about controlling for TIV in surface analysis. I read in the CAT manual that TIV should not be added as a covariate, but I couldn't find the reason why. I have observed small but significant effects of TIV on surface measures of certain ROIs, and have also seen some papers using TIV as a covariate in cortical thickness and gyrification analyses. Is it methodologically wrong to include TIV as a covariate in SBM using CAT?</u></summary>
+              Usually cortical thickness is quite robust to changes in TIV, so it's not necessary to control for it. However, there may be data where this will additionally remove variance from your data that is related to brain size, and there is no clear rule that it should not be included. Therefore, you can optionally use TIV as a nuisance parameter to help remove variance that is not related to your parameter of interest in your data.
+            </details>            
+
+            <details>            
+              <summary><u>Is there a way to extract ROI data using a different atlas to the one used during pre-processing?</u></summary>
+              Unfortunately, not. You have to select the atlas before processing the data.
+            </details>            
+
+            <details>            
+              <summary><u>I see that some dura are classified as GM in some of the subjects. Would you recommend trying some of the other skull stripping options or doing some manual edits? This is happening in a few subjects.</u></summary>
+              Some MR sequences show more difficulty in skull-stripping and my personal experience is that changing the skull-stripping approach in CAT12 does not really help much. However, you can try the older gcut method or the SPM approach in CAT12. Usually the remaining non-brain areas lead to higher local variance. Therefore, it is less likely to find effects in these areas, which is probably not a problem.
+            </details>            
+
+            <details>            
+              <summary><u>I would like to use CAT12 for VBM/SBM analyses with my stroke patients. I have lesion masks (manually traced on T2w images) but I am wondering how to mask out the lesion in CAT12 pre-processing?</u></summary>
+              CAT12 can now deal with lesions that have to be set to zero in your image using the Stroke Lesion Correction (SLC) in expert mode. These lesion areas are not used for segmentation or spatial registration, thus these preprocessing steps should be almost unaffected. If you have created masks you can apply these masks using the <a class="function" href="matlab:spm_jobman('interactive','','matlabbatch{1}.spm.tools.cat.tools.maskimg');">Lesion masking</a> tool in CAT12.
+            </details>            
+
+            <details>            
+              <summary><u>Can I convert my T-maps to effect size maps?</u></summary>
+              You can use the <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.T2x');">threshold and transform spmT plots</a> function to do this. Note, however, that the conversion to Cohen's d is only useful for 2-sample t-tests and the conversion to correlation coefficient is only useful for linear regression. The same applies to the conversion to R2 for F maps.
+            </details>            
+
+            <details>            
+              <summary><u>Is there any plan to extend the current CAT12 segmentation based only on T1w images to include FLAIR or T2 images?</u></summary>
+              No, there are no plans to include T2 or FLAIR in CAT12 in the near future. However, I would try to see if your additional T2 or FLAIR really helps to get a more accurate segmentation. While skull-stripping will definitely benefit from multi-channel segmentation, segmentation between GM and WM will often lead to less accurate results due to the lower contrast-to-noise ratio of T2 or FLAIR sequences.<br>
+              If you are trying to use FLAIR images to detect white matter hyperintensities (WMHs), you can try the LST toolbox. Here you can detect and fill the lesions to obtain a corrected T1 image.
+            </details>            
+
+            <details>            
+              <summary><u>Is there a workflow to use the resampled surfaces for permutation analyses in FSL randomise or PALM?</u></summary>
+              Randomize will not work with surfaces, but PALM supports gifti files. Thus, the resampled files should work with PALM.
+            </details>            
+
+            <details>            
+              <summary><u>If I use atlas ROI tools in CAT12 there are two different Neuromorphometric atlases listed. Which one should I use?</u></summary>
+              SPM12 provides the Neuromorphometric atlas in the MNI space that is used in SPM12. Please take care that you always use the atlases that are in CAT12 MNI152NLin2009cAsym space. These are indicated by a leading "cat12_" in the name.
+            </details>            
+
+            <details>            
+              <summary><u>I am using the TFCE toolbox to correct a cortical thickness analysis done with CAT12. Unexpectedly, my results after TFCE using a correction are extremely large at p<0.05 FWE compared to uncorrected results at p<0.001 and I am wondering if something might be wrong.</u></summary>
+              In rare cases, such a strong difference may be seen, especially for surface analysis. You may have a large and distributed effect that is significant at p<0.05 or 0.01 uncorrected. This large cluster is simply emphasised by its size by the TFCE approach. I would therefore recommend that you check your results for the parametric SPM test using a more liberal threshold and see if this is similar to the pattern you get with the TFCE.
+            </details>            
+
+            <details>            
+              <summary><u>I have processed my data on different platforms and obtain slightly different results if I calculate the differences between the GM segmentations for the same data set.</u></summary>
+              Unfortunately this can happen and has been investigated in this <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038234">paper</a> for the Freesurfer software. The authors also found different results for different OS X versions, probably due to the use of different software libraries. Personally, I haven't investigated the effect of different OS X versions, but I can confirm that different Matlab versions and operating systems will cause deviations using CAT12. However, the effect on the resulting statistical analysis is rather subtle. Some clusters change slightly in size, and even if some local values are changed the overall difference is quite small and will not affect your statistical results too much.
+            </details>  
+                      
+            <details>            
+              <summary><u>I have done the VBM processing with the CAT12 pipeline (as explained in the manual) and with the classical SPM12 DARTEL pipeline as explained in the John Ashburner <a href="https://www.fil.ion.ucl.ac.uk/~john/misc/VBMclass15.pdf">tutorial</a>. The results of these two pipelines give me a different result.</u></summary>
+              There are many differences in the pre-processing approaches between SPM12 and CAT12, and as is often the case, different methods give different results (even between CAT12 versions there are differences in the results). In CAT12 I also apply noise reduction, local adaptive segmentation and other methods that can affect the results. The only advice I can give is to choose the approach that best fits your hypothesis. It might also help to lower the thresholds to see the differences more clearly.
+            </details>       
+                 
+            <details>            
+              <summary><u>What are the units of the ROI values that are extracted in the csv file?</u></summary>
+              These are the mean volumes (separate for GM/WM) derived in native space and are defined in mL.
+            </details>   
+                     
+            <details>            
+              <summary><u>Why is smoothing recommended for fractal dimension analysis (and doesn't interfere with it)? It seems that smoothing would always end up reducing the FD (flattening over complexity/detail) and thus make it difficult to compare the FD between subjects.</u></summary>
+              Gaussian smoothing can be thought of as a weighted sum (average) of surrounding neighbours. The spatial scale of folding measures, such as gyrification or fractal dimension, is only meaningful when considering an area that spans the distance between a gyrus and a sulcus. Thus, Gaussian smoothing is the correct way to account for the spatial scale of folding measures, and this is also the reason why the recommended smoothing size is larger compared to thickness measures.
+            </details>            
+
+            <details>            
+              <summary><u>How is the detection of white matter hyperintensities (WMHs) working in CAT12?</u></summary>
+              Detecting <i>White Matter Hyperintensities</i> (WMHs) is crucial to avoid registration errors, such as attempting to move WMHs to typical GM locations, and surface reconstruction problems, such as misinterpreting WMHs as fuzzy cortical sulci <a href="https://dx.doi.org/10.13140/RG.2.2.26753.20326">Dahnke et al. 2019)</a>.</br>
+            CAT first applies an optimised low-resolution shooting registration technique (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner and Friston, 2011</a>) on the initial SPM segments to map the tissue probability map (TPM) and the CAT atlas to the individual space. Fine local correction of tissues and regions is then performed using region-growing and bottle-neck algorithms (<a href="https://doi.org/10.1109/MMBIA.1996.534084">Mangin et al., 1996.</a>; <a href="https://neuro-jena.github.io/pdf/Dahnke-NI12.pdf">Dahnke et al. 2012</a>). In the individual atlas map, isolated grey matter (GM) islands within the white matter (WM) and voxels surrounding the lateral ventricles with high WM probability but GM-like intensity are referred to as WM hyperintensities (WMHs).</br>
+            The final segmentation of the prepared T1 image with uncorrected WMHs uses an AMAP approach (<a href="https://doi.org/10.1109/42.563663">Rajapakse et al., 1997</a>) with a partial volume estimation (PVE) model (<a href="https://doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al., 2004</a>). Voxels with GM intensity but a WMH label are either temporarily aligned to the WM or treated as a separate tissue class, depending on the WMHC processing parameters.
+            </details>            
+
             <!-- ################################################################################# -->
             <h2 id="cite">Citing CAT12</h2>
 
@@ -3854,6 +3948,9 @@
             <p>I.B. Malone, K.K. Leung, S. Clegg, J. Barnes, J.L. Whitwell, J. Ashburner, N.C. Fox, G.R. Ridgway (2015). <a href="https://doi.org/10.1016/j.neuroimage.2014.09.034">
             Accurate automatic estimation of total intracranial volume: a nuisance variable with less nuisance.</a> Neuroimage 104:366-72.</p>
             
+            <p>J.-F. Mangin, J. Régis, V. Frouin. (1996). <a href="https://doi.org/10.1109/MMBIA.1996.534084">
+            Shape bottlenecks and conservative flow systems.</a> Proceedings of the Workshop on Mathematical Methods in Biomedical Image Analysis, San Francisco, pp. 319-328.</p>
+
             <p>J. Manjon, P Coupe, L. Marti-Bonmati, D.L. Collins, M. Robles (2010). <a href="https://doi.org/10.1002/jmri.22003">
             Adaptive Non-Local Means Denoising of MR Images With Spatially Varying Noise Levels.</a> Journal of Magnetic Resonance Imaging 31: 192-203.</p>
             
@@ -3881,7 +3978,8 @@
             <p>R.A. Yotter, G. Ziegler, P.M. Thompson, C. Gaser (2011d). <a href="http://www.neuro.uni-jena.de/hbm2011/Yotter02.pdf">
             Diffeometric Anatomical Registration on the Surface.</a> OHBM 2011</p>
 
-            <p class="hl">04-11-2022<br>
+ <!--             <p class="hl">04-11-2022<br>
+  -->
             Christian Gaser <a href="mailto:christian.gaser@uni-jena.de">christian.gaser@uni-jena.de</a><br>
             Florian Kurth <a href="mailto:f.kurth@auckland.ac.nz">f.kurth@auckland.ac.nz</a><br>
             Robert Dahnke <a href="mailto:robert.dahnke@uni-jena.de">robert.dahnke@uni-jena.de</a></p>
@@ -4013,8 +4111,8 @@
                   </ul>
                 </li>
 
-                <li><a href="#faq">FAQ</a></li>
 -->
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#cite">Citing CAT</a></li>
                 <li><a href="#refs">References</a></li>
 <!--
