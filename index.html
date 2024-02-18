@@ -136,6 +136,22 @@
             </p>
             
             <!-- ###################################### -->
+            <h3>Changes in version CAT12.9 (2520)</h3>
+
+            <details>
+              <summary><u>Changes in preprocessing pipeline (which affects your results compared to CAT12.8.2)</u></summary>
+              <ul>
+                <li>The cortical thickness measure has been updated to better handle partial volume effects.</li>
+                <li>Several changes have been made to support Octave compatibility.</li>
+                <li>Initial affine registration now uses a brain mask to obtain more reliable estimates, leading to more accurate non-linear spatial registration.</li>
+                <li>Various smaller changes have been made for blood vessel detection and background detection for skull-stripping.</li>
+                <li>The quartic mean Z-score is now used to assess sample homogeneity as it gives greater weight to outliers and makes them easier
+                to identify in the plot.</li>
+                <li>The previous cat_vol_sanlm from r1980 has been rescued and renamed to cat_vol_sanlm2180.m, which performs significantly better.</li>                
+              </ul>
+            </details>            
+
+            <!-- ###################################### -->
             <h3>Changes in version CAT12.8.2 (2130)</h3>
 
             <details>
@@ -3371,7 +3387,7 @@
 
             <h6 id="Thalamus">Thalamus</h6>
             <p>
-              This atlas is based on the <a href="https://wp.unil.ch/mial/probabilistic-atlas-of-thalamic_nuclei/">atlas of human thalamic nuclei</a> <a href="#Najdenovska">by Najdenovska et al. 2018</a>. 
+              This atlas is based on the <a href="https://wp.unil.ch/mial/probabilistic-atlas-of-thalamic-nuclei/">atlas of human thalamic nuclei</a> <a href="#Najdenovska">by Najdenovska et al. 2018</a>. 
             </p>
             <p>
               Display Thalamus atlas as
