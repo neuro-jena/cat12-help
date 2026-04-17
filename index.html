@@ -124,7 +124,7 @@
             <ul>
               <li><a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.estwrite');">Segment</a> data and select "Surface and thickness estimation" under "Writing options" (for longitudinal data use <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.long');">Segment Longitudinal Data</a>).<br>
               The surface data are saved in the folder "surf" and are named "?h.thickness.*" for cortical thickness.</li>
-              <li>Optionally, <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.surfextract');">Extract Additional Surface Parameters</a> (e.g. sulcal depth, gyrification, cortical complexity).</li>
+              <li>Optionally, <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.surfextract');">Extract Additional Surface Parameters</a> (e.g. surface, area, sulcal depth, gyrification, cortical complexity).</li>
               <li><a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.surfresamp');">Resample and smooth</a> surface data (suggested starting value 12 mm for cortical thickness and sulcal depth and 20–25 mm for folding measures<b><sup>1</sup></b>, use the default merging of hemispheres).<br>
               Select the "lh.thickness.*" data in the folder "surf". The resampled data are named "s12.mesh.resampled_32k.thickness.*" for 12 mm smoothed, merged hemispheres that were resampled to 32k template space.</li>
               <li>Check data quality of the resampled data using <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.check_homogeneity');">Sample Homogeneity</a>.</li>
@@ -168,7 +168,7 @@
             <p><a href="#top" aria-label="Back to top">Back to top</a></p>
             
             <!-- ###################################### -->
-            <h3>Changes in version CAT26.0 (3010)</h3>
+            <h3>Changes in version CAT26.0 (3200)</h3>
 
             <details>
               <summary><u>Changes in preprocessing pipeline (which affect your results compared to CAT12.9)</u></summary>
@@ -201,15 +201,25 @@
               <summary><u>New features</u></summary>
               <ul>
                 <li>
-                A new batch has been added under "Volume Tools" > "Rescan Average" to average rescans either in BIDS format or from manually selected images. This can be used, for example, to minimize motion artifacts. The functionality is already available directly from the menu.
+                The long-awaited and much-requested surface area estimation is finally available. This mirrors the sum-preserving per-vertex area estimation from FreeSurfer, and can now be used as an alternative measurement for surface folding. Use <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.surfextract')">Extract Additional Surface Parameters</a> to access the new functionality.
                 </li>
-                
+
                 <li>
-                To run SPM ImCalc on multiple images (e.g., to compute T1w/T2w ratios for all subjects), use the batch available under "Volume Tools" > "Multi-Subject Image Calculator".
+                A new batch has been added under "Volume Tools" > <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.savg')">Rescan Average</a> to average rescans either in BIDS format or from manually selected images. This can be used, for example, to minimize motion artifacts. The functionality is already available directly from the menu.
+                </li>
+
+                <li>
+                To run SPM ImCalc on multiple images (e.g. to compute T1w/T2w ratios for all subjects), use the batch available under "Volume Tools" > <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.tools.mimcalc.images')">Multi-Subject Image Calculator</a>.
                 </li>
                 
+                <!-- 
                 <li>
                 The output of the CAT preprocessing is now additionally consolidated into a single CSV file. The corresponding batch extracts information from the preprocessing XML files and is available under "Data Quality" > "...".  
+                </li>
+                -->
+                
+                <li>
+                CAT manual now offers a search function.
                 </li>
               </ul>
             </details>            
@@ -583,6 +593,35 @@
                 <br><u>Note:</u> For a basic VBM analysis, this is not needed.</li>
               </ul></li>
             </ul><br>
+
+            <h6>Output folder and BIDS/derivatives behavior</h6>
+            <p>The writing location is controlled by <b>Use BIDS directory structure?</b> and (for the BIDS modes) the <b>Output folder</b> entry. The output folder is usually something like <code>derivatives/CAT</code> (or <code>../derivatives/CAT</code> if you want to place it one level higher by using the "BIDS else CAT subfolder" option).</p>
+
+            <ul>
+              <li><b>Always CAT subfolders no BIDS</b>
+              <ul>
+                <li>Ignore BIDS and always write CAT-style subfolders next to input files.</li>
+              </ul></li>
+
+              <li><b>BIDS else CAT subfolders</b>
+              <ul>
+                <li>BIDS input: writes to dataset-level derivatives (e.g. <code>.../derivatives/CAT/sub-01/ses-01/anat/...</code>).</li>
+                <li>non-BIDS input: writes to a derivatives folder inferred from the file/dataset root.</li>
+              </ul></li>
+
+              <li><b>BIDS else output folder</b>
+              <ul>
+                <li>BIDS input: same BIDS derivatives handling as above.</li>
+                <li>non-BIDS input: writes CAT-style output next to each input file (e.g. <code>.../subject/derivatives/CAT/...</code>).</li>
+              </ul></li>
+
+              <li><b>Always output folder no BIDS</b> (expert mode only)
+              <ul>
+                <li>Always writes relative to the current input file location and ignores BIDS.</li>
+              </ul></li>
+            </ul>
+
+            <p><b>Practical recommendation:</b> Use one mode consistently within a project and avoid mixing already preprocessed derivatives files with raw inputs in the same run. For repeated processing of files already located in a CAT derivatives tree, CAT keeps the derivatives root instead of creating nested derivatives folders.</p>
 
             <p>The resulting files are saved in the respective subfolders and follow the CAT <a href="#naming">naming convention</a>.</p>
 
@@ -1841,6 +1880,7 @@
             </ul>
 
             <p>&rarr; For all other options you can follow the instructions for preprocessing of cross-sectional data as described before. Please note that not all writing options are available for longitudinal data.</p>
+            <p><b>Longitudinal note on output folders:</b> If you use BIDS/derivatives output modes, keep one consistent derivatives setting for all time points of a subject. This avoids ambiguous folder layouts and ensures reports (e.g. <code>catlong_*.xml</code>) are written to the expected report folder.</p>
             <p>For the naming conventions of all written files see <a href="#naming">Naming Convention of Output Files</a>. The GM segments are mwp1r* for the plasticity model or mwmwp1r* for the ageing model with larger changes, the WM segments are named mwp2r* (mwmwp2r*). Without modulation the leading &quot;m&quot; is omitted.</p>
             
             <!-- ############################# -->
@@ -3302,10 +3342,10 @@
             <p>
               Besides cortical thickness, further measures of brain folding and data mapping are available after surface reconstruction in the <i>'Extract & Map Surface Data...'</i> menu. 
               <!-- folding -->
-              The <a class="function" href="matlab:spm_jobman('interactive'','','spm.tools.cat.stools.surfextract')">Extract Additional Surface Parameters</a>  batch allows estimation of the folding measure by the absolute mean curvature <i>(Gyrification)</i> <a href="https://neuro-jena.github.io/pdf/Luders-NI06.pdf">(Luders et al. 2006)</a>, the depth of sulci or the measurement of local surface complexity by the fractal dimension <a href="https://neuro-jena.github.io/pdf/Yotter-NI11.pdf">(Yotter et al. 2011c).</a> 
+              The <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.surfextract')">Extract Additional Surface Parameters</a>  batch allows estimation of the folding measure by the absolute mean curvature <i>(Gyrification)</i> <a href="https://neuro-jena.github.io/pdf/Luders-NI06.pdf">(Luders et al. 2006)</a>, the depth of sulci or the measurement of local surface complexity by the fractal dimension <a href="https://neuro-jena.github.io/pdf/Yotter-NI11.pdf">(Yotter et al. 2011c).</a> 
               <!-- value mapping -->
               Moreover, 3D volume data (e.g. fMRI data) can be mapped to the individual surface to benefit from enhanced surface-based smoothing and registration. 
-              The mapping can be applied to volumes from the same <a class="function" href="matlab:spm_jobman('interactive'','','spm.tools.cat.stools.vol2surf')">native space</a>, e.g., for cortical myelination measures, or <a class="function" href="matlab:spm_jobman('interactive'','','spm.tools.cat.stools.cat_surf_coregvol2surf')">nonlinear co-registered volumes,</a> such as fMRI images. This mapping can also be applied to <a class="function" href="matlab:spm_jobman('interactive'','','spm.tools.cat.stools.vol2surftemp')">normalized volumes</a> without individual surfaces to map results in MNI space to the template surface.
+              The mapping can be applied to volumes from the same <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.vol2surf')">native space</a>, e.g., for cortical myelination measures, or <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.cat_surf_coregvol2surf')">nonlinear co-registered volumes,</a> such as fMRI images. This mapping can also be applied to <a class="function" href="matlab:spm_jobman('interactive','','spm.tools.cat.stools.vol2surftemp')">normalized volumes</a> without individual surfaces to map results in MNI space to the template surface.
               <!-- link -->
 <!--              See <a href="cat_tools_SBM.html">surface tools</a> for further information. -->
             </p>
