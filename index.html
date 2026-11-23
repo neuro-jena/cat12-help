@@ -203,7 +203,7 @@
             <p class="eyebrow">Computational Anatomy Toolbox for SPM</p>
             <h1>CAT Manual</h1>
             <p class="lead">A practical guide to voxel-, surface- and region-based morphometry with CAT &ndash; from preprocessing and quality control to statistical analysis and visualisation.</p>
-            <p class="doc-version">For <span id="cat-version">CAT26.0.3 (r3516) from 2026-11-04</span></p>
+            <p class="doc-version">For <span id="cat-version">CAT26.0.3 (r3519) from 2026-11-23</span></p>
           </header>
 
           <p class="callout callout-notice"><strong>The old server neuro.uni-jena.de is no longer available.</strong> Links to www.neuro.uni-jena.de or dbm.neuro.uni-jena.de, e.g. in older documents or scripts, no longer work. Please obtain CAT and all updates from <a href="https://github.com/ChristianGaser/cat12/releases">GitHub</a>, either directly or with <a class="function">Check for Updates</a> in the CAT window (Updates/Add&#8209;Ons).</p>
@@ -237,11 +237,11 @@
             
             <!-- ############################# -->
             <h3 id="intro_CAT">Introduction</h3>
-            <p class="image right"><img width=100% alt="Brain with a coronal slice of the left hemisphere and a schematic of the cortex showing the outer, central and inner surface, cortical thickness and the cortical layers" src="images/human_brain.webp"></p>
+            <p class="image right"><img width=100% style="aspect-ratio:auto 768/307" alt="Brain with a coronal slice of the left hemisphere and a schematic of the cortex showing the outer, central and inner surface, cortical thickness and the cortical layers" src="images/human_brain.webp"></p>
             <p>
               The brain is the most complex organ of the human body, and no two brains are alike. The study of the human brain is still in its infancy, yet rapid advances in image acquisition and processing have enabled increasingly refined characterisations of its micro- and macro-structure. Major efforts focus on mapping group differences (e.g., young vs. old, diseased vs. healthy, male vs. female), capturing changes over time (e.g., from infancy to old age, or in the framework of neuroplasticity after a clinical intervention), and assessing correlations of brain attributes (e.g., measures of length, volume, shape) with behavioural, cognitive, or clinical parameters.
             </p>
-            <div class="image left"><img width=60% alt="CAT logo" src="images/CAT.png"></div>
+            <div class="image left"><img width=60% style="aspect-ratio:auto 390/190" alt="CAT logo" src="images/CAT.png"></div>
             <p>
               CAT is a powerful suite of tools for morphometric analyses with an intuitive graphical user interface, and it can also be used as a shell script. CAT is suitable for beginners, casual users, experts, and developers alike, providing a comprehensive set of analysis options, workflows, and integrated pipelines.
             </p>
@@ -380,11 +380,11 @@
             
             <div class="figure-row">
               <figure>
-                <img loading="lazy" id="figure1" width=100% alt="SPM menu window with CAT selected in the toolbox list" src="images/spm_gui.webp">
+                <img loading="lazy" id="figure1" width=100% style="aspect-ratio:auto 700/779" alt="SPM menu window with CAT selected in the toolbox list" src="images/spm_gui.webp">
                 <figcaption><b>Figure 1:</b> SPM menu with CAT selected in the toolbox list</figcaption>
               </figure>
               <figure>
-                <img loading="lazy" id="figure2" width=84% alt="CAT toolbox window" src="images/cat_gui.webp">
+                <img loading="lazy" id="figure2" width=84% style="aspect-ratio:auto 700/985" alt="CAT toolbox window" src="images/cat_gui.webp">
                 <figcaption><b>Figure 2:</b> CAT window</figcaption>
               </figure>
             </div>
@@ -451,7 +451,7 @@
             </ul>
             
             <figure>
-              <img loading="lazy" id="figure3" width=100% alt="Batch Editor with the CAT segmentation module: module list, settings of the module, current item with the Specify button, and help text" src="images/batch_gui.webp">
+              <img loading="lazy" id="figure3" width=100% style="aspect-ratio:auto 1600/1112" alt="Batch Editor with the CAT segmentation module: module list, settings of the module, current item with the Specify button, and help text" src="images/batch_gui.webp">
               <figcaption><b>Figure 3:</b> The Batch Editor with the CAT segmentation module: (1) module list, (2) settings of the current module, where &quot;&lt;-X&quot; marks settings that still need an input (here: &quot;Volumes&quot;), (3) the current item with its value or options (the selected option is marked with &quot;*&quot;), and (4) help for the current item. To change a setting, select it in (2) and click &quot;Specify...&quot; (or double-click the setting) to select files, enter a value, or choose an option.</figcaption>
             </figure>
             
@@ -468,7 +468,7 @@
             <p><span class="subhead">Surface-based processing:</span> During the surface registration, the cortical surfaces of the two hemispheres are registered to the FreeSurfer <a href="https://surfer.nmr.mgh.harvard.edu/fswiki/FsAverage">&quot;FsAverage&quot; template</a> (as provided with CAT). For surface-based ROI analyses, CAT provides a selection of surface-based atlases. As the surface registration module uses the FreeSurfer &quot;FsAverage&quot; template, surface-based ROI analyses are not impacted by any template modification during voxel-based processing. In contrast to voxel-based ROI analyses, surface-based ROI analyses can, therefore, be applied regardless of whether the predefined or customized versions of the Dartel or Geodesic Shooting template have been used.</p>
 
             <figure>
-              <img loading="lazy" id="figure4" width=80% alt="Diagram of CAT's major processing steps: voxel-based processing (tissue segmentation and spatial registration with tissue probability maps, volume templates and atlases) leads to DBM, VBM and ROI results; surface-based processing (surface creation and registration with surface templates and atlases) leads to SBM and surface ROI results" src="images/cat_processing_steps.webp">
+              <img loading="lazy" id="figure4" width=80% style="aspect-ratio:auto 1600/900" alt="Diagram of CAT's major processing steps: voxel-based processing (tissue segmentation and spatial registration with tissue probability maps, volume templates and atlases) leads to DBM, VBM and ROI results; surface-based processing (surface creation and registration with surface templates and atlases) leads to SBM and surface ROI results" src="images/cat_processing_steps.webp">
               <figcaption><b>Figure 4:</b> Overview of CAT's major processing steps.</figcaption>
             </figure>
             
@@ -1115,7 +1115,7 @@
 
             <div class="figure-row">
               <figure>
-                <img loading="lazy" id="figure5" width=60% alt="Design orthogonality display: grey boxes between pairs of parameters indicate correlations" src="images/ortho.webp">
+                <img loading="lazy" id="figure5" width=60% style="aspect-ratio:auto 887/1240" alt="Design orthogonality display: grey boxes between pairs of parameters indicate correlations" src="images/ortho.webp">
                 <figcaption><b>Figure 5:</b> Grey boxes between the parameters point to a co-linearity (correlation): the darker the box the larger the correlation (which also holds for inverse correlations). If you click in the box the co-linearity between the parameters is displayed.</figcaption>
               </figure>
             </div>
@@ -1158,7 +1158,7 @@
                 <p><b><a href="#two_sample">Two-sample t-test</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=15% alt="Design matrix of the two-sample t-test" src="images/model_2sample.png"></p>
+                <p><img class="border" width=15% style="aspect-ratio:auto 80/240" alt="Design matrix of the two-sample t-test" src="images/model_2sample.png"></p>
                 </td>
               </tr>
               <tr>
@@ -1219,7 +1219,7 @@
                 <p><b><a href="#full_fact">2x2 ANOVA</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=25% alt="Design matrix of the 2x2 ANOVA" src="images/model_anova2x2.png"></p>
+                <p><img class="border" width=25% style="aspect-ratio:auto 120/240" alt="Design matrix of the 2x2 ANOVA" src="images/model_anova2x2.png"></p>
                 </td>
               </tr>
               <tr>
@@ -1411,7 +1411,7 @@
                 <p><b><a href="#mult_regress">Multiple regression (linear)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=15% alt="Design matrix of the linear multiple regression" src="images/model_mult_reg2.png"></p>
+                <p><img class="border" width=15% style="aspect-ratio:auto 60/200" alt="Design matrix of the linear multiple regression" src="images/model_mult_reg2.png"></p>
                 </td>
               </tr>
               <tr>
@@ -1467,7 +1467,7 @@
                 <p><b><a href="#mult_regress_poly">Multiple regression (polynomial)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=20% alt="Design matrix of the polynomial multiple regression" src="images/model_mult_reg.png"></p>
+                <p><img class="border" width=20% style="aspect-ratio:auto 80/200" alt="Design matrix of the polynomial multiple regression" src="images/model_mult_reg.png"></p>
                 </td>
               </tr>
               <tr>
@@ -1563,7 +1563,7 @@
                 <p><b><a href="#full_fact_interact">Interaction (linear)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=25% alt="Design matrix of the full factorial model with interaction" src="images/model_interact.png"></p>
+                <p><img class="border" width=25% style="aspect-ratio:auto 120/240" alt="Design matrix of the full factorial model with interaction" src="images/model_interact.png"></p>
                 </td>
               </tr>
               <tr>
@@ -1630,7 +1630,7 @@
                 <p><b><a href="#full_fact_poly">Interaction (polynomial)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=30% alt="Design matrix of the full factorial model with polynomial interaction" src="images/model_interact_poly.png"></p></td>
+                <p><img class="border" width=30% style="aspect-ratio:auto 160/240" alt="Design matrix of the full factorial model with polynomial interaction" src="images/model_interact_poly.png"></p></td>
                 
               </tr>
               <tr>
@@ -1775,7 +1775,7 @@
             <p>Please note that three different longitudinal models are offered. The first longitudinal model is optimized for processing and capturing smaller changes over time in response to short-term plasticity effects (e.g. from learning and training). This model will probably not be as sensitive for larger longitudinal changes where large parts of the brain change over time (e.g. atrophy due to Alzheimer's disease or ageing). This is due to the effect of estimating the parameters of spatial registration from the deformations of all time points and then applying them to all time points. If a large atrophy occurs between the time points, this can lead to a displacement of tissue boundaries and might result in areas with reduced volumes over time, which are surrounded by areas with increased volume due to these displacement problems. For data with larger volume changes over time, you should choose the longitudinal model, which is optimized to detect larger changes (e.g. due to ageing). This model also takes into account the deformations between time points and prevents the problems mentioned above. Finally, there also exists a longitudinal processing pipeline for neurodevelopmental data where we can also see changes in head size which should be taken into account.</p>
             <p>Additional attention is then required for the setup of the statistical model. The following section therefore describes the data preprocessing and model setup for longitudinal data.</p>
             <figure>
-              <img loading="lazy" id="figure6" width=100% alt="CAT's longitudinal processing workflows for (a) neuroplasticity, (b) ageing and (c) neurodevelopment" src="images/cat_long_pipelines.webp">
+              <img loading="lazy" id="figure6" width=100% style="aspect-ratio:auto 1600/947" alt="CAT's longitudinal processing workflows for (a) neuroplasticity, (b) ageing and (c) neurodevelopment" src="images/cat_long_pipelines.webp">
               <figcaption><b>Figure 6:</b> CAT’s longitudinal processing workflows to examine (a) neuroplasticity, (b) ageing, and (c) neurodevelopment.<br>
               The first step in all three workflows is the creation of a high-quality average image over all time points. For this purpose, CAT realigns the images from all time points for each participant using inverse-consistent (or symmetric) rigid-body registrations and intra-subject bias field correction. While this is sufficient to create the required average image for the neuroplasticity and ageing workflows, the neurodevelopmental workflow requires non-linear registrations in addition. In either case, the resulting average image is segmented using CAT’s regular processing workflow to create a subject-specific tissue probability map (TPM). This TPM is used to enhance the time point-specific processing to create the final segmentations. The final tissue segments are then registered to MNI space to obtain a voxel-comparability across time points and subjects, which differs between all three workflows. In the neuroplasticity workflow, an average of the time point-specific registrations is created to register the tissue segments of all time points to MNI space. The ageing workflow does the same in principle but adds additional (very smooth) deformations between the individual images across time points to account for inevitable age-related changes over time (e.g., enlargements of the ventricles). In contrast, the neurodevelopmental workflow needs to account for major changes, such as overall head and brain growth, which requires independent non-linear registrations to MNI space of all images across time points (which are obtained using the default cross-sectional registration model).<br>
               For surface-based processing, the neuroplasticity and ageing models use the processing of the time point average image to create an average surface. The average is then adapted (deformed) to time point specific maps used in the surface creation, whereas the neurodevelopment workflow has to run the independent cross-sectional surface pipeline for each time point.</figcaption>
@@ -2250,7 +2250,7 @@
                 <p><b><a href="#long_one">Longitudinal data in one group (example for two time points)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=25% alt="Design matrix for longitudinal data in one group" src="images/model_long1.png"></p>
+                <p><img class="border" width=25% style="aspect-ratio:auto 431/343" alt="Design matrix for longitudinal data in one group" src="images/model_long1.png"></p>
                 </td>
               </tr>
               <tr>
@@ -2301,7 +2301,7 @@
                 <p><b><a href="#long_two">Longitudinal data in two groups (example for two time points)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=25% alt="Design matrix for longitudinal data in two groups" src="images/model_long2.png"></p>
+                <p><img class="border" width=25% style="aspect-ratio:auto 433/343" alt="Design matrix for longitudinal data in two groups" src="images/model_long2.png"></p>
                 </td>
               </tr>
               <tr>
@@ -2428,7 +2428,7 @@
                 <p><b><a href="#long_two_interact">Longitudinal data in two groups with interaction of covariate by group (example for two time points)</a></b></p>
                 </td>
                 <td colspan="1" rowspan="1">
-                <p><img loading="lazy" class="border" width=25% alt="Design matrix for longitudinal data in two groups with interaction of covariate by group" src="images/model_long_cov.png"></p>
+                <p><img class="border" width=25% style="aspect-ratio:auto 611/584" alt="Design matrix for longitudinal data in two groups with interaction of covariate by group" src="images/model_long_cov.png"></p>
                 </td>
               </tr>
               <tr>
@@ -3208,7 +3208,7 @@
             <p>To mitigate improper deformations during spatial registration in brains with stroke lesions, the CAT toolbox offers a Stroke Lesion Correction (SLC) method. This feature suppresses strong (high-frequency) deformations during the Shooting registration step, which can occur due to the presence of lesions. To utilize this method, the lesions must be set to zero. This can be achieved by employing the <a class="function">Manual image (lesion) masking</a>, where a lesion mask can be created. Subsequently, the SLC flag should be enabled in the <a class="function">expert mode</a>  of CAT. This ensures that the regions containing lesions are excluded from the spatial registration, preventing large deformations that might otherwise arise when aligning the lesioned brain with a template brain.<br>
             By implementing this correction, CAT facilitates more accurate spatial alignment, particularly for clinical data involving stroke patients. This approach is essential for neuroimaging studies where precise brain structure alignment is crucial for subsequent analysis.</p> 
             <figure>
-              <img loading="lazy" id="figureSLC" width=80% alt="Shooting registration of a brain with a stroke lesion without and with stroke lesion correction (SLC), compared to the Shooting template; circles mark regions affected by the lesion" src="images/cat_SLC_msk_c0009s0010t01A.webp">
+              <img loading="lazy" id="figureSLC" width=80% style="aspect-ratio:auto 960/207" alt="Shooting registration of a brain with a stroke lesion without and with stroke lesion correction (SLC), compared to the Shooting template; circles mark regions affected by the lesion" src="images/cat_SLC_msk_c0009s0010t01A.webp">
               <figcaption><b>Stroke Lesion Correction</b> Shown is the grey matter segmentation of subject <i>SLC_msk_c0009s0010t01</i> from the <a href="https://fcon_1000.projects.nitrc.org/indi/retro/atlas.html">ATLAS</a> database without (left) and with <i>Stroke Lesion Correction</i> (SLC; right)</figcaption>
             </figure>
 
@@ -3318,7 +3318,7 @@
               <a class="function">volume map</a>.
             </p>
             You can find more information about this atlas <a>here</a>.
-            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_neuromorphometrics.webp" width=90% alt="Neuromorphometrics atlas shown on the FreeSurfer and Dartel average surfaces"></p>
+            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_neuromorphometrics.webp" width=90% style="aspect-ratio:auto 1024/193" alt="Neuromorphometrics atlas shown on the FreeSurfer and Dartel average surfaces"></p>
 
             <h5 id="LPBA">LPBA40</h5>
             <p>
@@ -3331,7 +3331,7 @@
               Display LPBA40 atlas as <a class="function">volume map</a>.
             </p>
             You can find more information about this atlas <a>here</a>.
-            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_lpba40.webp" width=90% alt="LPBA40 atlas shown on the FreeSurfer and Dartel average surfaces"></p>
+            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_lpba40.webp" width=90% style="aspect-ratio:auto 1024/193" alt="LPBA40 atlas shown on the FreeSurfer and Dartel average surfaces"></p>
 
             <h5 id="Hammers">Hammers</h5>
             <p>
@@ -3341,7 +3341,7 @@
               <a class="function">volume map</a>.
             </p>
             You can find more information about this atlas <a>here</a>.
-            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_hammers.webp" width=90% alt="Hammers atlas shown on the FreeSurfer and Dartel average surfaces"></p>
+            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_hammers.webp" width=90% style="aspect-ratio:auto 1024/193" alt="Hammers atlas shown on the FreeSurfer and Dartel average surfaces"></p>
 
             <h5 id="Cobra">Cobra</h5>
             <p>
@@ -3524,7 +3524,7 @@
               <a class="function">both sides</a>
               ). 
             </p>
-            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_Desikan-Killiany.webp" width=90% alt="Desikan-Killiany (DK40) atlas shown on the FreeSurfer and Dartel average surfaces"></p>
+            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_Desikan-Killiany.webp" width=90% style="aspect-ratio:auto 1024/193" alt="Desikan-Killiany (DK40) atlas shown on the FreeSurfer and Dartel average surfaces"></p>
 
             <h5 id="FS_Destrieux2009">Destrieux Atlas (2009)</h5>
             <p>
@@ -3541,7 +3541,7 @@
               <a class="function">both sides</a>
               ). 
             </p>
-            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_Destrieux.webp" width=90% alt="Destrieux atlas shown on the FreeSurfer and Dartel average surfaces"></p>
+            <p style="text-align:center;"><img loading="lazy" src="images/CAT_surf_atlas_Destrieux.webp" width=90% style="aspect-ratio:auto 1024/193" alt="Destrieux atlas shown on the FreeSurfer and Dartel average surfaces"></p>
 
             <h5 id="FS_HCP">Human Connectome Project (HCP) Multi-Modal Parcellation</h5>
             <p>

@@ -127,7 +127,6 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h) + 1.25rem);
-  scroll-behavior: smooth;
 }
 
 body {
@@ -1418,10 +1417,6 @@ mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *, *::before, *::after {
     -webkit-animation: none !important;
     animation: none !important;
